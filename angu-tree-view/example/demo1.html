@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/angu-tree-view.css" rel="stylesheet" />
+    <script src="js/demo1.js"></script>
+    <script src="js/angu-tree-view.js"></script>
+</head>
+<body>
+    <div ng-app="app" ng-controller="DemoCtrl">
+        <h3>Demo</h3> <br />
+        <div>
+            <angu-tree-view tree-nodes="treeNodes" ng-model="Menus" is-enable-checked="true" is-init="true"></tree-view>
+        </div>
+        <div>
+            <input type="button" ng-click="showRtnMenus()" value="Show" />
+        </div>
+    </div>
+</body>
+</html>

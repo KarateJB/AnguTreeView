@@ -1,22 +1,22 @@
 angular.module('anguTreeView', [])
-.directive('anguTreeView', function ($http, $q, $compile, $filter) {
+.directive('anguTreeView', function ($http, $q, $compile, $timeout, $filter) {
 
     var templateHtml =
-      '<script type="text/ng-template" id="nodes.html">'+
+      '<script type="text/ng-template" id="nodes.html">' +
       '<input type="checkbox" ng-checked="menus[node.Id].IsSelected" ng-show="isEnableChecked" ng-click="SetChecked(node)">' +
-      '<button type="button" ng-show="menus[node.Id].IsShowExt" ng-click="ShowSubnodes(node)">'+
-      '<img class="plus" />'+
-      '</button>'+
-      '<button type="button" ng-show="menus[node.Id].IsShowColp" ng-click="HideSubnodes(node)">'+
-        '<img class="minus" />'+
-      '</button>'+
-      '<input type="button"  class="btn btn-link" value="{{node.Title}}"  ng-click="SetChecked(node)" />'+
-      '<div class="list-group-item treeView" ng-show="menus[node.Id].IsShow"  ng-repeat="node in node.Nodes" ng-include="\'nodes.html\'" >'+
-      '</div>'+
-      '</script>'+
-      '<div class="list-group borderless">'+
-      '<div class="list-group-item treeView" ng-repeat="node in treeNodes" ng-include="\'nodes.html\'">'+
-      '</div>'+
+      '<button type="button" ng-show="menus[node.Id].IsShowExt" ng-click="ShowSubnodes(node)">' +
+      '<img class="plus" />' +
+      '</button>' +
+      '<button type="button" ng-show="menus[node.Id].IsShowColp" ng-click="HideSubnodes(node)">' +
+        '<img class="minus" />' +
+      '</button>' +
+      '<input type="button"  class="btn btn-link" value="{{node.Title}}"  ng-click="SetChecked(node)" />' +
+      '<div class="list-group-item treeView" ng-show="menus[node.Id].IsShow"  ng-repeat="node in node.Nodes" ng-include="\'nodes.html\'" >' +
+      '</div>' +
+      '</script>' +
+      '<div class="list-group borderless">' +
+      '<div class="list-group-item treeView" ng-repeat="node in treeNodes" ng-include="\'nodes.html\'">' +
+      '</div>' +
       '</div>';
 
     return {
@@ -50,7 +50,7 @@ angular.module('anguTreeView', [])
                 }
             }
 
-            
+
             /*
              * 初始化$scope.Menus
              */
@@ -111,21 +111,31 @@ angular.module('anguTreeView', [])
              */
             $scope.SetChecked = function (node) {
 
+
                 //Set the IsSelected in menus
+                var isStop = false;
                 angular.forEach($scope.menus, function (item) {
-                    if (item.Id == node.Id) {
-                        item.IsSelected = !item.IsSelected;
+                    if (!isStop) {
+                        if (item.Id == node.Id) {
+                            item.IsSelected = !item.IsSelected;
+                            isStop = true;
+                        }
                     }
                 })
 
                 //Set the IsSelected in RtnMenus
-                angular.forEach($scope.RtnMenus, function (rtnItem) {
-                    if (rtnItem.Id == node.Id) {
-                        rtnItem.IsSelected = !rtnItem.IsSelected;
-                    }
-                });
+                if ($scope.isInit != "true" || $scope.isInit == null) {
+                    angular.forEach($scope.RtnMenus, function (rtnItem) {
+                        if (rtnItem.Id == node.Id) {
+                            rtnItem.IsSelected = !rtnItem.IsSelected;
+                        }
+                        else if (!rtnItem.IsSelected) { //Set default IsSelected=false if it had never been set.
+                            rtnItem.IsSelected = false;
+                        }
+                    });
+                }
 
-                
+
             }
 
             /*
@@ -175,7 +185,7 @@ angular.module('anguTreeView', [])
             $scope.$watch($scope.menus, function (newValue, oldValue) {
 
 
-                if ($scope.isInit==true || $scope.isInit=="true") {
+                if ($scope.isInit == true || $scope.isInit == "true") {
                     if ($scope.menus) {
                         $scope.RtnMenus = []; //Clear
 

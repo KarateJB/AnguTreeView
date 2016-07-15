@@ -1,13 +1,14 @@
 # AnguTreeView
 A tree view directive for angular.
 
-##Features
+## Features
 * Unlimited tree nodes
 * Checkbox supported
 * Support ngModel to get the list of nodes
 
-##Demo
+### Demo 1
 [Demo #1](http://karatejb.github.io/demo/angu-treeview/demo1)
+### Demo 2
 [Demo #2](http://karatejb.github.io/demo/angu-treeview/demo2)
 
 ## Description of attributes

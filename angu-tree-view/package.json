@@ -4,7 +4,9 @@
   "description": "A tree view for angular",
   "main": "angu-tree-view.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server -port 6666",
+    "start": "npm run lite"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/KarateJB/AnguTreeView/issues"
   },
-  "homepage": "https://github.com/KarateJB/AnguTreeView#readme"
+  "homepage": "https://github.com/KarateJB/AnguTreeView#readme",
+  "dependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
 }

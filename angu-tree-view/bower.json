@@ -1,0 +1,26 @@
+{
+  "name": "angu-tree-view",
+  "homepage": "https://github.com/KarateJB/AnguTreeView",
+  "authors": [
+    "KarateJB <ppippenkimo@gamil.com>"
+  ],
+  "description": "A tree view directive for angular",
+  "main": ["dist/angu-tree-view.js",
+           "dist/angu-tree-view.css",
+           "dist/image/minus.gif",
+           "dist/image/plus.gif"],
+  "keywords": ["Angular",
+               "TreeView",
+               "TreeNode"],
+  "license": "MIT",
+  "ignore": [
+    //"**/.*",
+    ".*",
+    "example",
+    "configs",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -5,10 +5,8 @@
     "KarateJB <ppippenkimo@gamil.com>"
   ],
   "description": "A tree view directive for angular",
-  "main": ["dist/angu-tree-view.js",
-           "dist/angu-tree-view.css",
-           "dist/image/minus.gif",
-           "dist/image/plus.gif"],
+  "main": ["angu-tree-view/dist/angu-tree-view.js",
+           "angu-tree-view/dist/angu-tree-view.css"],
   "keywords": ["Angular",
                "TreeView",
                "TreeNode"],
@@ -18,15 +16,18 @@
   "license": "MIT",
   "ignore": [
     //"**/.*",
-    "example",
-    "configs",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "angu-tree-view.css",
-    "angu-tree-view.js",
-    "bower.json",
-    "package.json"
+    "angu-tree-view/example",
+    "angu-tree-view/configs",
+    "angu-tree-view/node_modules",
+    "angu-tree-view/bower_components",
+    "angu-tree-view/test",
+    "angu-tree-view/tests",
+    "angu-tree-view/angu-tree-view.css",
+    "angu-tree-view/angu-tree-view.js",
+    "angu-tree-view/bower.json",
+    "angu-tree-view/package.json",
+    ".gitattributes",
+    ".gitignore",
+    "README.md"
   ]
 }

@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "ignore": [
-    "angu-tree-view/example",
+    "angu-tree-view/image",
     "angu-tree-view/configs",
     "angu-tree-view/node_modules",
     "angu-tree-view/bower_components",
@@ -27,6 +27,7 @@
     "angu-tree-view/package.json",
     ".gitattributes",
     ".gitignore",
+    "bower.json",
     "README.md"
   ]
 }

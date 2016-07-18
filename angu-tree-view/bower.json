@@ -12,15 +12,21 @@
   "keywords": ["Angular",
                "TreeView",
                "TreeNode"],
+  "dependencies": {
+    "angular": "1.4.x || 1.5.x"
+  },
   "license": "MIT",
   "ignore": [
     //"**/.*",
-    ".*",
     "example",
     "configs",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "angu-tree-view.css",
+    "angu-tree-view.js",
+    "bower.json",
+    "package.json"
   ]
 }

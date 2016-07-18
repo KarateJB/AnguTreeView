@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "angu-tree-view",
   "homepage": "https://github.com/KarateJB/AnguTreeView",
   "authors": [
@@ -15,7 +15,6 @@
   },
   "license": "MIT",
   "ignore": [
-    //"**/.*",
     "angu-tree-view/example",
     "angu-tree-view/configs",
     "angu-tree-view/node_modules",

@@ -1,5 +1,5 @@
 /**
- * @license AnguTreeView v0.1.5
+ * @license AnguTreeView v0.1.6
  * (c) 2016-2016. https://github.com/KarateJB/AnguTreeView
  * License: MIT
  */

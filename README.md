@@ -1,6 +1,15 @@
 # AnguTreeView
 A tree view directive for AngularJS.
 
+## Install
+
+### Bower
+
+```
+bower install angu-tree-view --save
+```
+
+
 ## Features
 * Unlimited tree nodes
 * Checkbox supported

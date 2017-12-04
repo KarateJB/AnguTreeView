@@ -1,5 +1,5 @@
 # AnguTreeView
-A tree view directive for angular.
+A tree view directive for AngularJS.
 
 ## Features
 * Unlimited tree nodes

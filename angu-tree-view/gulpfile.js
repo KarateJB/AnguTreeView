@@ -9,7 +9,8 @@ var rename = require('gulp-rename');
 
 var root_path = {
     webroot: "./",
-    img: "./image/"
+    img: "./image/",
+    base:"../"
 }
 
 var target_path = {
@@ -49,16 +50,21 @@ function packDistImg(){
      .pipe(gulp.dest(target_path.example + "css/image/"));
 }
 
-gulp.task("packdist", function(){
+gulp.task("pack-dist", function(){
     copyDistJs();
     packDistJs();
     packDistCss();
     packDistImg();
 })
 
+gulp.task("copy-readme", function(){
+    return gulp.src(root_path.base + "README.md")
+    .pipe(gulp.dest(root_path.webroot));
+})
+
 
 // Copy Task
 gulp.task("default", [
-    "packdist"
+    "pack-dist", "copy-readme"
 ]);
 

@@ -3,13 +3,6 @@ A tree view directive for AngularJS.
 
 ## Install
 
-### npm
-
-```
-npm install angu-tree-view --save
-```
-
-
 ### Bower
 
 ```

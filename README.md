@@ -24,16 +24,20 @@ bower install angu-tree-view --save
 > Set `is-init=false` for use the default ngModel, click **Show** to console ngModel
 
 ### Demo 3
-[Demo #3](http://karatejb.github.io/demo/angu-treeview/demo2)
+[Demo #3](http://karatejb.github.io/demo/angu-treeview/demo3)
 > This sample use Font-awesome to display the Expansion/Collapse buttons on tree node
 
 ## Description of attributes
-| Attribute        | Description           | Required  |
-| :------------- |:-------------| :-----:|
-| treeNodes | Tree nodes in json | Yes |
-| ngModel | Full list of nodes and selected status | No |
-| isEnableChecked | Set 'true' to enable(display) checkbox for every node | No |
-| isInit | Set 'true' to overwrite ngModel when directive initialized  | No |
+|    Attribute    |  Description                                               |  Required |
+| :-------------- |:-----------------------------------------------------------| :--------:|
+| treeNodes       | Tree nodes in json                                         | Yes       |
+| ngModel         | Full list of nodes and selected status                     | No        |
+| isEnableChecked | Set 'true' to enable(display) checkbox for every node      | No        |
+| isInit          | Set 'true' to overwrite ngModel when directive initialized | No        |
+| plusCss         | Custom css class name for the `Expand` button image        | No        |
+| minusCss        | Custom css class name for the `Collapse` button image      | No        |
+
+
 
 ### Usage
 ```html

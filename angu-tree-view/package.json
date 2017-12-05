@@ -1,6 +1,6 @@
 {
   "name": "angu-tree-view",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A tree view for AngularJS",
   "main": "angu-tree-view.js",
   "scripts": {

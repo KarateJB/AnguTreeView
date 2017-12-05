@@ -3,6 +3,13 @@ A tree view directive for AngularJS.
 
 ## Install
 
+### npm
+
+```
+npm install angu-tree-view --save
+```
+
+
 ### Bower
 
 ```
@@ -15,15 +22,14 @@ bower install angu-tree-view --save
 * Checkbox supported
 * Support ngModel to get the list of nodes
 
-### Demo 1
+### Demo
+
 [Demo #1](http://karatejb.github.io/demo/angu-treeview/demo1)
 > Set `is-init=true` for over-writing the original treeNodes to ngModel, click **Show** to console ngModel
 
-### Demo 2
 [Demo #2](http://karatejb.github.io/demo/angu-treeview/demo2)
 > Set `is-init=false` for use the default ngModel, click **Show** to console ngModel
 
-### Demo 3
 [Demo #3](http://karatejb.github.io/demo/angu-treeview/demo3)
 > This sample use Font-awesome to display the Expansion/Collapse buttons on tree node
 

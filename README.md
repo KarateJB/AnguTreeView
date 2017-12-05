@@ -17,8 +17,15 @@ bower install angu-tree-view --save
 
 ### Demo 1
 [Demo #1](http://karatejb.github.io/demo/angu-treeview/demo1)
+> Set `is-init=true` for over-writing the original treeNodes to ngModel, click **Show** to console ngModel
+
 ### Demo 2
 [Demo #2](http://karatejb.github.io/demo/angu-treeview/demo2)
+> Set `is-init=false` for use the default ngModel, click **Show** to console ngModel
+
+### Demo 3
+[Demo #3](http://karatejb.github.io/demo/angu-treeview/demo2)
+> This sample use Font-awesome to display the Expansion/Collapse buttons on tree node
 
 ## Description of attributes
 | Attribute        | Description           | Required  |

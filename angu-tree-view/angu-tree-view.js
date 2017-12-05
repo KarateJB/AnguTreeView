@@ -1,6 +1,6 @@
 /** 
- * @license AnguTreeView v0.1.9
- * 2016-2017 JB  http://karatejb.blogspot.tw/
+ * @license AnguTreeView v0.2.0
+ * 2016-2017 KareJB https://github.com/KarateJB/AnguTreeView
  * License: MIT
  */
 angular.module('anguTreeView', [])

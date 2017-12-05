@@ -27,11 +27,11 @@ button.list-group-item {
 .plus {
     width: 10px;
     height: 10px;
-    content:url("../image/plus.gif");
+    content:url("image/plus.gif");
 }
 
 .minus {
     width: 10px;
     height: 10px;
-    content: url("../image/minus.gif");
+    content: url("image/minus.gif");
 }

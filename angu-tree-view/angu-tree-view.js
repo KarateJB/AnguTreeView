@@ -1,37 +1,49 @@
+/** 
+ * @license AnguTreeView v0.1.9
+ * 2016-2017 JB  http://karatejb.blogspot.tw/
+ * License: MIT
+ */
 angular.module('anguTreeView', [])
 .directive('anguTreeView', function ($http, $q, $compile, $timeout, $filter) {
 
     var templateHtml =
-      '<script type="text/ng-template" id="nodes.html">' +
-      '<input type="checkbox" ng-checked="menus[node.Id].IsSelected" ng-show="isEnableChecked" ng-click="SetChecked(node)">' +
-      '<button type="button" ng-show="menus[node.Id].IsShowExt" ng-click="ShowSubnodes(node)">' +
-      '<img class="plus" />' +
-      '</button>' +
-      '<button type="button" ng-show="menus[node.Id].IsShowColp" ng-click="HideSubnodes(node)">' +
-        '<img class="minus" />' +
-      '</button>' +
-      '<input type="button"  class="btn btn-link" value="{{node.Title}}"  ng-click="SetChecked(node)" />' +
-      '<div class="list-group-item treeView" ng-show="menus[node.Id].IsShow"  ng-repeat="node in node.Nodes" ng-include="\'nodes.html\'" >' +
-      '</div>' +
-      '</script>' +
-      '<div class="list-group borderless">' +
-      '<div class="list-group-item treeView" ng-repeat="node in treeNodes" ng-include="\'nodes.html\'">' +
-      '</div>' +
-      '</div>';
+        '<script type="text/ng-template" id="nodes.html">' +
+        '<input type="checkbox" ng-checked="menus[node.Id].IsSelected" ng-show="isEnableChecked" ng-click="SetChecked(node)">' +
+        '<button type="button" ng-show="menus[node.Id].IsShowExt" ng-click="ShowSubnodes(node)">' +
+        '<i ng-class="plusCss"></i>' +
+        '</button>' +
+        '<button type="button" ng-show="menus[node.Id].IsShowColp" ng-click="HideSubnodes(node)">' +
+        '<i ng-class="minusCss"></i>' +
+        '</button>' +
+        '<input type="button"  class="btn btn-link" value="{{node.Title}}"  ng-click="SetChecked(node)" />' +
+        '<div class="list-group-item treeView" ng-show="menus[node.Id].IsShow"  ng-repeat="node in node.Nodes" ng-include="\'nodes.html\'" >' +
+        '</div>' +
+        '</script>' +
+        '<div class="list-group borderless">' +
+        '<div class="list-group-item treeView" ng-repeat="node in treeNodes" ng-include="\'nodes.html\'">' +
+        '</div>' +
+        '</div>';
 
     return {
         //restrict: "AE",
         scope: {
-            RtnMenus: "=ngModel",    //Return Menus for parent scope use
-            treeNodes: "=",          //Tree Nodes 
-            isEnableChecked: "@",    //Enable checkbox
-            isInit: "@"              //Clean and recreate ngModel
+            RtnMenus: "=ngModel", //Return Menus for parent scope use
+            treeNodes: "=", //Tree Nodes 
+            isEnableChecked: "@", //Enable checkbox
+            plusCss: "@", //Plus CSS class
+            minusCss: "@", //Minus CSS class
+            isInit: "@" //Clean and recreate ngModel
         },
         template: templateHtml,
         link: function ($scope, $element, $attrs) {
 
             //Initialize
             $scope.menus = [];
+
+            if (!$scope.plusCss)
+                $scope.plusCss = "plus";
+            if (!$scope.minusCss)
+                $scope.minusCss = "minus";
 
             initIsEnableChecked();
             initMenus($scope.treeNodes);
@@ -44,8 +56,7 @@ angular.module('anguTreeView', [])
             function initIsEnableChecked() {
                 if ($scope.isEnableChecked == "true") {
                     $scope.isEnableChecked = true;
-                }
-                else {
+                } else {
                     $scope.isEnableChecked = null;
                 }
             }
@@ -69,7 +80,12 @@ angular.module('anguTreeView', [])
                         hasSubnodes = true;
                     }
 
-                    $scope.menus[node.Id] = { 'Id': node.Id, 'IsFirstLvl': isFirstLvl, 'HasSubnodes': hasSubnodes, 'IsSelected': node.IsSelected };
+                    $scope.menus[node.Id] = {
+                        'Id': node.Id,
+                        'IsFirstLvl': isFirstLvl,
+                        'HasSubnodes': hasSubnodes,
+                        'IsSelected': node.IsSelected
+                    };
 
                     if (node.Nodes != null) {
                         initMenus(node.Nodes);
@@ -89,13 +105,11 @@ angular.module('anguTreeView', [])
                         menu.IsShowExt = true;
                         menu.IsShowEColp = false;
                         menu.IsShow = false;
-                    }
-                    else if (menu.IsFirstLvl) { //沒有子層，但為第一層
+                    } else if (menu.IsFirstLvl) { //沒有子層，但為第一層
                         menu.IsShowExt = false;
                         menu.IsShowEColp = false;
                         menu.IsShow = true;
-                    }
-                    else { //非第一層且無子層
+                    } else { //非第一層且無子層
                         menu.IsShowExt = false;
                         menu.IsShowEColp = false;
                         menu.IsShow = false;
@@ -128,8 +142,7 @@ angular.module('anguTreeView', [])
                     angular.forEach($scope.RtnMenus, function (rtnItem) {
                         if (rtnItem.Id == node.Id) {
                             rtnItem.IsSelected = !rtnItem.IsSelected;
-                        }
-                        else if (!rtnItem.IsSelected) { //Set default IsSelected=false if it had never been set.
+                        } else if (!rtnItem.IsSelected) { //Set default IsSelected=false if it had never been set.
                             rtnItem.IsSelected = false;
                         }
                     });
@@ -145,8 +158,7 @@ angular.module('anguTreeView', [])
                 angular.forEach(nodes, function (node) {
                     if (index == 1) {
                         $scope.menus[node.Id].IsShow = true;
-                    }
-                    else {
+                    } else {
                         $scope.menus[node.Id].IsShow = false;
                     }
 
